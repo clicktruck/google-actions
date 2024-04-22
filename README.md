@@ -122,15 +122,15 @@ export GOOGLE_SERVICE_ACCOUNT_KEY=
 
 ### Create KMS Key
 
-Under Github Actions, manually trigger [dispatch-key-management-service](../../../actions/workflows/google-kms-dispatch.yml).
+Under Github Actions, manually trigger [dispatch-key-management-service](../../actions/workflows/google-kms-dispatch.yml).
 
 ### Create Remote Backend Support
 
-Under Github Actions, manually trigger [dispatch-remote-backend-for-terraform-state](../../../actions/workflows/google-provided-remote-backend-dispatch.yml).
+Under Github Actions, manually trigger [dispatch-remote-backend-for-terraform-state](../../actions/workflows/google-provided-remote-backend-dispatch.yml).
 
 ### Create Toolset Image
 
-Under Github Actions, manually trigger [build-toolset-image](../../../actions/workflows/google-ubuntu-22_04.yml).
+Under Github Actions, manually trigger [build-toolset-image](../../actions/workflows/google-ubuntu-22_04.yml).
 
 Alternatively, you could create the AMI by executing the aws CLI and Packer script by following these guides:
 
@@ -146,9 +146,9 @@ Take this path when you want to get up-and-running as quickly as possible with t
 
 Under Github Actions, manually trigger one of:
 
-* [create-autopilot-workshop-environment](../../../actions/workflows/google-autopilot-e2e.yml)
+* [create-autopilot-workshop-environment](../../actions/workflows/google-autopilot-e2e.yml)
   > **Warning** This is a sentry workflow.  It fails to complete provisioning all resources.
-* [create-workshop-environment](../../../actions/workflows/google-e2e.yml)
+* [create-workshop-environment](../../actions/workflows/google-e2e.yml)
 
 > The DNS Zone name must be a domain you control and can configure nameservers for
 
@@ -157,7 +157,7 @@ Under Github Actions, manually trigger one of:
 
 Administer resources one at a time.  Take this path when you want to take a closer look at the GitHub Actions and Terraform modules.
 
-There are two types of actions defined, those that can be manually triggered (i.e., dispatched), and those that can only be called by another action.  All actions are located [here](../../../actions) and can be run by providing the required parameters.  Go [here](../.github/workflows) to inspect the source for each action.
+There are two types of actions defined, those that can be manually triggered (i.e., dispatched), and those that can only be called by another action.  All actions are located [here](../../actions) and can be run by providing the required parameters.  Go [here](../.github/workflows) to inspect the source for each action.
 
 > Note that for most dispatch actions, you have the option to either create or destroy the resources.
 
@@ -165,18 +165,18 @@ There are two types of actions defined, those that can be manually triggered (i.
 
 | Module       | Github Action       | Terraform               |
 | :---       | :---:               | :---:                   |
-| KMS |[:white_check_mark:](../../../actions/workflows/google-kms-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/google-terraform/tree/main/modules/kms) |
-| Remote backend | [:white_check_mark:](../../../actions/workflows/google-provided-remote-backend-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/google-terraform/tree/main/modules/tfstate-support) |
-| VPC | [:white_check_mark:](../../../actions/workflows/google-virtual-network-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/google-terraform/tree/main/modules/virtual-network) |
-| DNS Zone for base domain | [:white_check_mark:](../../../actions/workflows/google-main-dns-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/google-terraform/tree/main/modules/main-dns) |
-| DNS Zone for sub domain | [:white_check_mark:](../../../actions/workflows/google-child-dns-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/google-terraform/tree/main/modules/child-dns) |
-| GKE Cluster | [:white_check_mark:](../../../actions/workflows/google-k8s-cluster-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/google-terraform/tree/main/modules/cluster/standard) |
-| GKE Autopilot Cluster | [:white_check_mark:](../../../actions/workflows/google-k8s-autopilot-cluster-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/google-terraform/tree/main/modules/cluster/autopilot) |
-| Container registry | [:white_check_mark:](../../../actions/workflows/google-container-registry-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/google-terraform/tree/main/modules/registry) |
-| Harbor | [:white_check_mark:](../../../actions/workflows/google-harbor-dispatch.yml) | [:white_check_mark:](../terraform/k8s/harbor) |
-| Bastion | [:white_check_mark:](../../../actions/workflows/google-bastion-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/google-terraform/tree/main/modules/bastion) |
-| Secrets Manager | [:white_check_mark:](../../../actions/workflows/google-secrets-manager-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/google-terraform/tree/main/modules/secrets-manager) |
-| Secrets | [:white_check_mark:](../../../actions/workflows/google-secrets-manager-secrets-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/google-terraform/tree/main/modules/secrets-manager-secrets) |
+| KMS |[:white_check_mark:](../../actions/workflows/google-kms-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/google-terraform/tree/main/modules/kms) |
+| Remote backend | [:white_check_mark:](../../actions/workflows/google-provided-remote-backend-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/google-terraform/tree/main/modules/tfstate-support) |
+| VPC | [:white_check_mark:](../../actions/workflows/google-virtual-network-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/google-terraform/tree/main/modules/virtual-network) |
+| DNS Zone for base domain | [:white_check_mark:](../../actions/workflows/google-main-dns-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/google-terraform/tree/main/modules/main-dns) |
+| DNS Zone for sub domain | [:white_check_mark:](../../actions/workflows/google-child-dns-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/google-terraform/tree/main/modules/child-dns) |
+| GKE Cluster | [:white_check_mark:](../../actions/workflows/google-k8s-cluster-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/google-terraform/tree/main/modules/cluster/standard) |
+| GKE Autopilot Cluster | [:white_check_mark:](../../actions/workflows/google-k8s-autopilot-cluster-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/google-terraform/tree/main/modules/cluster/autopilot) |
+| Container registry | [:white_check_mark:](../../actions/workflows/google-container-registry-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/google-terraform/tree/main/modules/registry) |
+| Harbor | [:white_check_mark:](../../actions/workflows/google-harbor-dispatch.yml) | [:white_check_mark:](../terraform/k8s/harbor) |
+| Bastion | [:white_check_mark:](../../actions/workflows/google-bastion-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/google-terraform/tree/main/modules/bastion) |
+| Secrets Manager | [:white_check_mark:](../../actions/workflows/google-secrets-manager-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/google-terraform/tree/main/modules/secrets-manager) |
+| Secrets | [:white_check_mark:](../../actions/workflows/google-secrets-manager-secrets-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/google-terraform/tree/main/modules/secrets-manager-secrets) |
 
 
 ## Vending credentials
@@ -190,11 +190,11 @@ Go visit the Secret Manager Secrets Terraform module's [README](https://github.c
 
 ## Cleaning up everything
 
-In order to destroy all of the resources created you can use the Github action [destroy-workshop-environment](../../../actions/workflows/google-e2e-destroy.yml).  This action should be run with the same inputs used to create an environment.
+In order to destroy all of the resources created you can use the Github action [destroy-workshop-environment](../../actions/workflows/google-e2e-destroy.yml).  This action should be run with the same inputs used to create an environment.
 
 You'll want also want to `destroy` the remote backend support and KMS key by executing the following jobs:
 
-* [dispatch-remote-backend-for-terraform-state](../../../actions/workflows/google-provided-remote-backend-dispatch.yml)
-* [dispatch-key-management-service](../../../actions/workflows/google-kms-dispatch.yml)
+* [dispatch-remote-backend-for-terraform-state](../../actions/workflows/google-provided-remote-backend-dispatch.yml)
+* [dispatch-key-management-service](../../actions/workflows/google-kms-dispatch.yml)
 
 > Don't forget to choose `destroy` before clicking on the `Run workflow` button.
