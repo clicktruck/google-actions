@@ -72,7 +72,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: terraform/google/bastion
+        working-directory: modules/bastion
 
     steps:
     # Checkout the repository to the GitHub Actions runner

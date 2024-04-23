@@ -41,7 +41,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: terraform/google/tfstate-support
+        working-directory: modules/tfstate-support
 
     runs-on: ubuntu-22.04
 

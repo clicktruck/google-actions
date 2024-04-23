@@ -74,7 +74,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: terraform/google/cluster/autopilot
+        working-directory: modules/cluster/autopilot
 
     steps:
     # Checkout the repository to the GitHub Actions runner

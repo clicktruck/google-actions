@@ -34,7 +34,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: terraform/google/kms
+        working-directory: modules/kms
 
     outputs:
       keyring_name: ${{ steps.set_outputs.outputs.keyring_name }}

@@ -47,7 +47,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: terraform/google/registry-2
+        working-directory: modules/registry-2
 
     steps:
     # Checkout the repository to the GitHub Actions runner

@@ -39,7 +39,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: terraform/google/child-dns
+        working-directory: modules/child-dns
 
     steps:
     # Checkout the repository to the GitHub Actions runner

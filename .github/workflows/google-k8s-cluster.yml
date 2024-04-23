@@ -106,7 +106,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: terraform/google/cluster/standard
+        working-directory: modules/cluster/standard
 
     steps:
     # Checkout the repository to the GitHub Actions runner
