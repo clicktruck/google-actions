@@ -180,7 +180,7 @@ jobs:
   install-tanzu-cluster-essentials:
     if: inputs.action == 'create'
     needs: obtain-base64-encoded-kubeconfig-from-cluster
-    uses: ./.github/workflows/install-tanzu-cluster-essentials.yml
+    uses: clicktruck/platform-actions/.github/workflows/install-tanzu-cluster-essentials.yml@main
     with:
       cluster-provider: "gke"
     secrets:
@@ -194,10 +194,10 @@ jobs:
   install-tanzu-standard-repo:
     if: inputs.action == 'create'
     needs: [obtain-base64-encoded-kubeconfig-from-cluster,install-tanzu-cluster-essentials]
-    uses: ./.github/workflows/install-tanzu-standard-repo.yml
+    uses: clicktruck/platform-actions/.github/workflows/install-tanzu-standard-repo.yml@main
     with:
       cluster-provider: "gke"
-      tkg-version: "v2023.9.19"
+      tkg-version: "v2024.2.1"
     secrets:
       GOOGLE_PROJECT_ID: ${{ secrets.GOOGLE_PROJECT_ID }}
       GOOGLE_SERVICE_ACCOUNT_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
@@ -213,7 +213,7 @@ jobs:
     uses: ./.github/workflows/install-tanzu-data-services-repo.yml
     with:
       cluster-provider: "gke"
-      tds-version: "1.12.1"
+      tds-version: "1.13.0"
     secrets:
       GOOGLE_PROJECT_ID: ${{ secrets.GOOGLE_PROJECT_ID }}
       GOOGLE_SERVICE_ACCOUNT_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
