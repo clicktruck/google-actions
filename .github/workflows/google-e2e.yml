@@ -198,7 +198,7 @@ jobs:
       GOOGLE_PROJECT_ID: ${{ secrets.GOOGLE_PROJECT_ID }}
       GOOGLE_SERVICE_ACCOUNT_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
   install-tanzu-ingress-into-harbor-cluster:
-    uses: ./.github/workflows/install-tanzu-ingress.yml
+    uses: clicktruck/platform-actions/.github/workflows/install-tanzu-ingress.yml@main
     needs: [obtain-base64-encoded-kubeconfig-for-harbor-cluster,fetch-google-cloud-dns-zone-name]
     with:
       target-cloud: "google"
