@@ -17,7 +17,7 @@ ENV HELM_VERSION=3.14.4 \
     YTT_VERSION=0.49.0
 
 RUN apt update && apt install -y --no-install-recommends \
-    && bash coreutils ca-certificates curl docker.io jq python3 python3-pip wget \
+    && bash ca-certificates curl docker.io jq python3 python3-pip wget \
     && curl -s -o /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl \
     && chmod +x /usr/local/bin/kubectl \
     && wget -O imgpkg https://github.com/vmware-tanzu/carvel-imgpkg/releases/download/v${IMGPKG_VERSION}/imgpkg-linux-amd64 \
