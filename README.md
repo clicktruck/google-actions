@@ -111,14 +111,13 @@ A PAT is required so that workflows can add secrets to the repository in order t
 Setup some Github secrets with the SP credentials.  Documentation can be found [here](https://docs.github.com/en/actions/security-guides/encrypted-secrets).  You might also consider using [gh secret set](https://cli.github.com/manual/gh_secret_set) command to set these individually. Or, after exporting all environment variables below, execute [gh-secrets-setup.sh](https://github.com/clicktruck/scripts/blob/main/gh-set-secrets.sh) at the command-line passing `google` as an execution argument.
 
 ```bash
-# This is a personal access token that was created in an above step that allows for the workflows to write secrets
-export PA_TOKEN=
 # The Google Cloud project that will host all resources created
 export GOOGLE_PROJECT_ID=
 # The base64-encoded contents of the Google Cloud project's service account key that has the authority to create cloud resources
 export GOOGLE_SERVICE_ACCOUNT_KEY=
 ```
 
+You'll also want to [create another secret](https://github.com/clicktruck/scripts/blob/main/set-personal-access-token.sh) whose value is the fine-grained personal token you created in the prior step.
 
 ### Create KMS Key
 
