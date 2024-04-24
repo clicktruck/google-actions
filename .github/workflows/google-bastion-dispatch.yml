@@ -14,7 +14,7 @@ on:
         description: "Name of a pre-existing public subnet within a VPC network"
         required: true
       os-image:
-        description: "The name of the AMI (without the timestamp or version suffix)"
+        description: "The name of the image.  (Finds latest available compute image where the name starts with what you've entered here)."
         required: true
         default: "k8s-toolset-image"
       machine-type:
