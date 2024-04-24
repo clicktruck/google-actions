@@ -1,4 +1,4 @@
-FROM gcr.io/google.com/cloudsdktool/google-cloud-cli:472.0.0-debian_component_based
+FROM gcr.io/google.com/cloudsdktool/google-cloud-cli:473.0.0-debian_component_based
 
 LABEL "com.github.actions.name"="tanzu-runsh-setup-action" \
       "com.github.actions.icon"="server" \
@@ -54,8 +54,8 @@ RUN apt update && apt install -y --no-install-recommends \
     && chmod +x yq_linux_amd64 \
     && mv yq_linux_amd64 /usr/local/bin/yq \
     && gcloud components install gke-gcloud-auth-plugin --quiet \
-    && mkdir -p /opt/hostedtoolcache/gcloud/472.0.0/x64/bin \
-    && ln -s /google-cloud-sdk/bin/gcloud /opt/hostedtoolcache/gcloud/472.0.0/x64/bin/gcloud \
+    && mkdir -p /opt/hostedtoolcache/gcloud/473.0.0/x64/bin \
+    && ln -s /google-cloud-sdk/bin/gcloud /opt/hostedtoolcache/gcloud/473.0.0/x64/bin/gcloud \
     && rm -rf /var/lib/apt/lists/
 
 # Copies scripts from action repository to the filesystem path `/` of the container

@@ -124,7 +124,7 @@ jobs:
     - name: 'Set up Cloud SDK'
       uses: 'google-github-actions/setup-gcloud@v2'
       with:
-        version: "472.0.0"
+        version: "473.0.0"
         install_components: gke-gcloud-auth-plugin
 
     - name: 'Destroy images and bucket'
