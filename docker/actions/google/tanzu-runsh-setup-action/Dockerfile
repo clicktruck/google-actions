@@ -17,7 +17,7 @@ ENV HELM_VERSION=3.14.4 \
     YQ_VERSION=4.43.1 \
     YTT_VERSION=0.49.0
 
-RUN RUN apt update && apt install -y --no-install-recommends \
+RUN apt update && apt install -y --no-install-recommends \
     && jq software-properties-common wget \
     && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - \
     && add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
