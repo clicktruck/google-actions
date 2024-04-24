@@ -16,7 +16,7 @@ on:
         required: true
         type: string
       os-image:
-        description: "The name of the AMI (without the timestamp or version suffix)"
+        description: "The name of the image.  (Finds latest available compute image where the name starts with what you've entered here)."
         required: true
         type: string
       machine-type:
