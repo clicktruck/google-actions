@@ -12,12 +12,17 @@ ENV HELM_VERSION=3.14.4 \
     KBLD_VERSION=0.43.0 \
     KCTRL_VERSION=0.51.0 \
     KUBECTL_VERSION=1.29.4 \
+    LEFTOVERS_VERSION=0.62.0 \
     VENDIR_VERSION=0.40.1 \
     YQ_VERSION=4.43.1 \
     YTT_VERSION=0.49.0
 
 RUN apt update && apt install -y --no-install-recommends \
-    && bash ca-certificates curl docker.io jq python3 python3-pip wget \
+    && apt-transport-https bash ca-certificates curl gnupg iptables jq lsb-release python3 python3-pip software-properties-common wget \
+    && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - \
+    && add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
+    && apt update \
+    && apt install -y docker-ce docker-ce-cli containerd.io \
     && curl -s -o /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl \
     && chmod +x /usr/local/bin/kubectl \
     && wget -O imgpkg https://github.com/vmware-tanzu/carvel-imgpkg/releases/download/v${IMGPKG_VERSION}/imgpkg-linux-amd64 \
@@ -41,6 +46,10 @@ RUN apt update && apt install -y --no-install-recommends \
     && curl -LO "https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz" \
     && tar -xvf helm-v${HELM_VERSION}-linux-amd64.tar.gz \
     && mv linux-amd64/helm /usr/local/bin \
+    && wget https://github.com/genevieve/leftovers/releases/download/v${LEFTOVERS_VERSION}/leftovers-v${LEFTOVERS_VERSION}-linux-amd64 \
+    && mv leftovers-v${LEFTOVERS_VERSION}-linux-amd64 leftovers \
+    && chmod +x leftovers \
+    && mv leftovers /usr/local/bin \
     && curl -LO https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64 \
     && chmod +x yq_linux_amd64 \
     && mv yq_linux_amd64 /usr/local/bin/yq \
