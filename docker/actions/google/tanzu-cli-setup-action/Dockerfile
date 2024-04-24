@@ -17,12 +17,11 @@ ENV HELM_VERSION=3.14.4 \
     YQ_VERSION=4.43.1 \
     YTT_VERSION=0.49.0
 
-RUN apt update && apt install -y --no-install-recommends \
-    && jq software-properties-common wget \
+RUN apt update && apt install jq software-properties-common wget -y --no-install-recommends \
     && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - \
     && add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
     && apt update \
-    && apt install -y docker-ce docker-ce-cli containerd.io \
+    && apt install docker-ce docker-ce-cli containerd.io -y \
     && curl -s -o /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl \
     && chmod +x /usr/local/bin/kubectl \
     && wget -O imgpkg https://github.com/vmware-tanzu/carvel-imgpkg/releases/download/v${IMGPKG_VERSION}/imgpkg-linux-amd64 \
