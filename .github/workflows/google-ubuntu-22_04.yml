@@ -179,6 +179,6 @@ jobs:
         run: |
           echo '${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}' | base64 -d > ./creds.json
           export GOOGLE_APPLICATION_CREDENTIALS="./creds.json"
-          packer build -only=standard.* -var "project_id=${{ github.event.inputs.project-id }}"" -var "image_name=k8s-toolset-image" -var "machine_type=${{ github.event.inputs.machine-type }}" -var "zone=${{ github.event.inputs.zone }}" .
+          packer build -only=standard.* -var "project_id=${{ github.event.inputs.project-id }}" -var "image_name=k8s-toolset-image" -var "machine_type=${{ github.event.inputs.machine-type }}" -var "zone=${{ github.event.inputs.zone }}" .
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
