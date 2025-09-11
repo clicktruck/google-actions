@@ -51,7 +51,7 @@ jobs:
     steps:
     - name: Checkout
       if: inputs.action == 'create'
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
       with:
         repository: clicktruck/google-terraform
 
@@ -103,7 +103,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
     - name: Add Google container storage bucket name as secret
       env:
         GITHUB_TOKEN: ${{ secrets.PA_TOKEN }}
